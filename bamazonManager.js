@@ -46,6 +46,7 @@ function Manager()
         addProduct();
         break;
       }
+
     });
 }
 
@@ -131,7 +132,7 @@ function addProduct()
         }
 
     ]).then(function(answer) {
-        connection.query("INSERT INTO auctions SET ?" ,
+        connection.query("INSERT INTO products SET ?" ,
     {
           product_name: answer.product,
           department_name: answer.department,
@@ -140,8 +141,7 @@ function addProduct()
     } , function(err) {
         if(err) throw err;
         console.log("Ite added to inventory");
-        connection.end();
     });
     });
-    
+
 }
